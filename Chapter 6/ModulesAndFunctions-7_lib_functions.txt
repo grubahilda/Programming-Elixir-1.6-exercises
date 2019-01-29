@@ -1,0 +1,10 @@
+C:\Users\marta>iex.bat
+Interactive Elixir (1.8.0) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> :erlang.float_to_list(5.231,[{:decimals, 2}])
+'5.23'
+iex(2)> System.get_env("windir")
+"C:\\Windows"
+iex(3)> Path.extname("this_file.exs")
+".exs"
+iex(4)> File.cwd()
+{:ok, "c:/Users/marta"}
