@@ -1,17 +1,57 @@
 # Programming Elixir 1.6 - exercises
 
-Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version May 2018). In the Book, apart from basic syntax explanation, the author shows many examples and also challenges the reader to try coding on her own. I want to keep track on what I've learned and I created this repo for my future reference as well as sense of progress that I am making.
+Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version May 2018). In the Book, apart from basic syntax explanation, the author shows many examples and also challenges the reader to try coding on her own. I want to keep track on what I've learned and I created this repo for my future reference as well as sense of progress that I make.
 
-# Latest learning notes
+## Latest learning notes
 
-## 29/01
+### 30/01
+**important!!! Start with reading chapters about maps and structs again!**
+* Elixir pattern matching is recursive (matching patterns inside patterns)
+
+#### How to choose between Maps, Structs, and Keyword Lists
+* When using patter matching against the contents - **_map_**
+* When in need of more than one entry with the same key - `Keyword` **_module_**
+* When in need of elements ordering - `Keyword` **_module_**
+* When using data that is always structured the same - **_struct_**
+* Otherwise - **_map_** will do
+
+#### To access keyword list elements:
+* by using keyword_list[key], for example:
+```
+iex(1)> kl = [one: "one", two: "two"]
+iex(2)> kl[:two]
+"two"
+```
+* by using `get` function of the `Keyword` module:
+```
+iex(1)> kl = [one: "one", two: "two"]
+[one: "one", two: "two"]
+iex(2)> Keyword.get(kl, :one)
+"one"
+```
+* getting all values of the same duplicated keys by using `key_values` function:
+```
+iex(1)> kl = [one: "one", two: "two", one: "another_one"]
+[one: "one", two: "two", one: "another_one"]
+iex(2)> Keyword.get_values(kl, :one)
+["one", "another_one"]
+```
+
+#### Sets
+
+* can't contain duplicate elements
+* is constructed using `MapSet.new/0`
+* represented by `#MapSet<[]>` struct
+
+
+
+### 29/01
 * **Directives** are: `import` (can add `only: [function, arity]` or `except`), `alias`, `require`
 * **Attributes of a module**: at the beginning, starting with `@`, used as metadata of the module, for example `@name`
 * **Erlang functions**: variables start with uppercase and atoms are lowercase. So, to refer to Erlang function `tc` in module `timer`, write `:timer.tc`, or for erlang `format`, write `:io.format`
-
  
 
-# Initial notes
+## Initial notes
 
 **Start command prompt shell:**
 `iex -S mix`
