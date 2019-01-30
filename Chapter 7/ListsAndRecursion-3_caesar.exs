@@ -1,4 +1,4 @@
-defmodule MyList do
+defmodule Caesar do
 	
 	def caesar([], _n), do: []
 
@@ -6,9 +6,10 @@ defmodule MyList do
 		[head + n|caesar(tail, n)]
 	end
 
-	def caesar([_head|tail], n), do: ['?'|caesar(tail, n)]
-
+	def caesar([head|tail], n) when head + n > 122 do
+		[head-26+n|caesar(tail, n)]
+	end
 end
 
-IO.puts MyList.caesar('marta',5)   	# rfwyf
-IO.puts MyList.caesar('ryvkve',13)  # ???x?r
+IO.puts Caesar.caesar('hvmov',5)   	# marta
+IO.puts Caesar.caesar('ryvkve',13)  # elixir
