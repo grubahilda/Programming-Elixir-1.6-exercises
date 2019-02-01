@@ -4,9 +4,28 @@ Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version M
 
 ## Latest learning notes
 
-### 30/01
-**important!!! Start with reading chapters about maps and structs again!**
-* Elixir pattern matching is recursive (matching patterns inside patterns)
+
+### 1/02/2019
+
+#### Structs
+* it is a limited form of map
+* created inside of a module
+created using `defmodule` macro
+* the name of the module becomes the name of the map type
+* keys must be atoms
+* to assign some default values to keys and limit them
+
+##### Creating a struct
+The struct `%User{}`:
+```commandline
+defmodule User do
+    defstruct name: "", premium: false, admin: false
+end
+```
+
+#### Collections
+
+### 30/01/2019
 
 #### How to choose between Maps, Structs, and Keyword Lists
 * When using patter matching against the contents - **_map_**
@@ -17,20 +36,20 @@ Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version M
 
 #### To access keyword list elements:
 * by using keyword_list[key], for example:
-```
+```commandline
 iex(1)> kl = [one: "one", two: "two"]
 iex(2)> kl[:two]
 "two"
 ```
 * by using `get` function of the `Keyword` module:
-```
+```commandline
 iex(1)> kl = [one: "one", two: "two"]
 [one: "one", two: "two"]
 iex(2)> Keyword.get(kl, :one)
 "one"
 ```
 * getting all values of the same duplicated keys by using `key_values` function:
-```
+```commandline
 iex(1)> kl = [one: "one", two: "two", one: "another_one"]
 [one: "one", two: "two", one: "another_one"]
 iex(2)> Keyword.get_values(kl, :one)
@@ -45,7 +64,7 @@ iex(2)> Keyword.get_values(kl, :one)
 
 
 
-### 29/01
+### 29/01/2019
 * **Directives** are: `import` (can add `only: [function, arity]` or `except`), `alias`, `require`
 * **Attributes of a module**: at the beginning, starting with `@`, used as metadata of the module, for example `@name`
 * **Erlang functions**: variables start with uppercase and atoms are lowercase. So, to refer to Erlang function `tc` in module `timer`, write `:timer.tc`, or for erlang `format`, write `:io.format`
@@ -53,14 +72,17 @@ iex(2)> Keyword.get_values(kl, :one)
 
 ## Initial notes
 
-**Start command prompt shell:**
+**Start command prompt shell (when in the folder with mix project):**
 `iex -S mix`
+
+**Start command prompt shell (when in any folder):**
+`iex.bat`
 
 ***
 
 **Start new project:**
 
-```
+```commandline
 mix new project_name
 defmodule Drop do
 end
@@ -80,7 +102,7 @@ end
 
 **Referring to build-in functions:**
 For example from math module:
-```
+```commandline
 :math.pi() #(or no brackets at all)
 :math.pow(2,16)
 ```
@@ -104,7 +126,7 @@ Updating multiple key–value pairs:<br>
 `Extended_map = Map.put_new(new_map, :jupiter, 23.1)`
 
 Reading maps through pattern matching:<br>
-```
+```commandline
 %{earth: earth_gravity} = new_map
 earth_gravity 
 9.8
