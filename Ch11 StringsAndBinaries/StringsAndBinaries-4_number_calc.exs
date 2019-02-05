@@ -1,10 +1,10 @@
 defmodule NumberCals do
 	
-	def calc(string), do: _calc(string) |> compute
-	def _calc(string) do
+	def calc(string) do
 		string
 			|> List.to_string
 			|> String.split([" "])
+			|> compute
 	end
 
 	def compute([nr1, sign, nr2]) do
