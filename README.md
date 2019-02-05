@@ -4,11 +4,67 @@ Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version M
 
 ## Latest learning notes
 
+#### 5/02/2019
+
+**Strings interpolation:** when they include placeholders for corresponding values/variables<br>
+**Strings escape:** when they include the backlash `(\)` escape sequences
+
+#####Sigils:
+* `~C`- a character list with no escaping or interpolation
+* `~c` – a character list, escaped and interpolated just like a single-quoted string
+* `~D` – a `Date` in the format `yyyy-mm-dd`
+* `~N` – a naive (raw) `DateTime` in the format `yyyy-mm-dd hh:mm:ss[.ddd]`
+* `~R` – a regular expression with no escaping or interpolation
+* `~r` – a regular expression, escaped or interpolated
+* `~S` – a string with no escaping or interpolation
+* `~s` – a string, escaped and interpolated just like a double-quoted string
+* `~T` – a `Time` in the format `hh:mm:ss[.dddd]`
+* `~W` – a list of whitespace-delimited words, with no escaping or interpolation
+* `~w` – a list of whitespace-delimited words, with escaping and interpolation
+
+
+
+**Single-quoted form:** referred to as a character list, represented as a list of integer values<br>
+Example: `[67, 65, 84]` –> `’CAT’`<br>
+**Double-quoted string:** can be called strings<br>
+**Triple string delimiter:** used in `heredoc`, indent the same as in string contents
+
+
+### 4/02/2019
+
+#### Streams - composable enumerators
+* lazy enumerables
+* the elements being enumerated are created one by one, during enumeration
+* allow to map the range, triggering its enumeration (computation occurred only after using `Enum.map`):
+```commandline
+iex> range = 1..5
+iex> stream = Stream.map(range, &(&1 * 2))
+iex> Enum.map stream, &(&1*2)
+[4, 6, 8, 10, 12]
+```
+* composable means that you can pass a stream to a stream function
+* with streams the data can be processed as they arrive
+* sometimes slower than `Enum` but Enum implementation requires waiting for all the lines before the processing of data is started
+
+#### Comprehensions
+
+Syntax:
+ ```
+ result = for generator or filter .. [, into: value], do: expression
+ ```
+ 
+ Examples:
+ ```commandline
+for x <- [1, 2, 3, 4, 5], do: x + 2
+for x <- [2, 4, 6, 8], x > 4, do: x * x
+```
+
+* all variable assignments are local to that comprehension
 
 ### 1/02/2019
 
 #### Structs
-* it is a limited form of map
+* limited forms of map
 * created inside of a module
 created using `defmodule` macro
 * the name of the module becomes the name of the map type
@@ -23,7 +79,6 @@ defmodule User do
 end
 ```
 
-#### Collections
 
 ### 30/01/2019
 
