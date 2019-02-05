@@ -1,0 +1,11 @@
+Exercise: StringsAndBinaries-3
+
+Try the following in IEx:
+
+​ 	​iex>​ [ ​'cat'​ | ​'dog'​ ]
+​ 	['cat',100,111,103]
+
+Why does IEx print ’cat’ as a string, but ’dog’ as individual numbers?
+
+Response:
+By using '|' notation, we suggest elixir that we divide the list into head|tail, so it takes the first argument as head element and the rest as a tail, which is just another list: in this case, a list of characters.
