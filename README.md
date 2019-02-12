@@ -4,6 +4,25 @@ Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version M
 
 ## Latest learning notes
 
+#### 12/02/2019
+
+##### mix - basic commands
+* `mix new project_name` - creates a new elixir project in the current location
+* `mix test` - starts project tests
+* `mix run my_app.exs` - run the project
+* `mix run my_app.exs arg1 arg2` - run the project with command-line arguments
+* `mix run -e 'Issues.CLI.run(["-h"])'` - run the code with `-e` (evaluate) option
+* `mix deps` - lists dependencies and their statuses
+* `mix deps.get` - gets dependencies that are not available or out of date
+
+
+#### 6/02/2019
+
+##### Binaries
+
+* Double-quoted strings are stored as a consecutive sequence of bytes in UTF-8 encoding
+* Rather than use `[ head | tail ]`, we use `<< head::utf8, tail::binary >>`. And rather than terminate when we reach the empty list, `[]`, we look for an empty binary, `<<>>`.
+
 #### 5/02/2019
 
 **Strings interpolation:** when they include placeholders for corresponding values/variables<br>
