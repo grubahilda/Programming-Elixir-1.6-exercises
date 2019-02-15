@@ -14,6 +14,8 @@ Learning Elixir from the book *Programming Elixir 1.6* by Dave Thomas (version M
 * `mix run -e 'Issues.CLI.run(["-h"])'` - run the code with `-e` (evaluate) option
 * `mix deps` - lists dependencies and their statuses
 * `mix deps.get` - gets dependencies that are not available or out of date
+* `mix escript.build` - builds an escript (executable) for the project
+* `mix docs` - to generate documentation
 
 
 #### 6/02/2019
